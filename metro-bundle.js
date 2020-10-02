@@ -205,6 +205,13 @@ var __BUNDLE_START_TIME__=this.nativePerformanceNow?nativePerformanceNow():Date.
     return Error('Requiring module "' + displayName + '", which threw an exception: ' + error);
   }
 })(typeof globalThis !== 'undefined' ? globalThis : typeof global !== 'undefined' ? global : typeof window !== 'undefined' ? window : this);
+(function (global) {
+  "use strict";
+
+  global.setTimeout = function () {};
+
+  global.clearTimeout = function () {};
+})(typeof globalThis !== 'undefined' ? globalThis : typeof global !== 'undefined' ? global : typeof window !== 'undefined' ? window : this);
 __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
   "use strict";
 
@@ -212,19 +219,20 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
 
   var _reactTestRenderer = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[1]));
 
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
   function Link(props) {
-    return _react.default.createElement("a", {
+    return _react["default"].createElement("a", {
       href: props.page
     }, props.children);
   }
 
-  var testRenderer = _reactTestRenderer.default.create(_react.default.createElement(Link, {
+  var testRenderer = _reactTestRenderer["default"].create(_react["default"].createElement(Link, {
     page: "https://www.facebook.com/"
   }, "Facebook"));
 
-  console.log(testRenderer.toJSON());
+  var json = JSON.stringify(testRenderer.toJSON());
+  print_log(json);
 },0,[1,4]);
 __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
   'use strict';

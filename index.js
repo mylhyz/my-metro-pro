@@ -9,4 +9,6 @@ const testRenderer = TestRenderer.create(
     <Link page="https://www.facebook.com/">Facebook</Link>
 );
 
-console.log(testRenderer.toJSON());
+let json = JSON.stringify(testRenderer.toJSON());
+
+print_log(json);
