@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import View from './Core/View';
-import Image from './Core/Image';
-import Text from './Core/Text';
+import View from '../Framework/Component/View';
+import Image from '../Framework/Component/Image';
+import Text from '../Framework/Component/Text';
 
 export default class App extends Component {
     render() {
