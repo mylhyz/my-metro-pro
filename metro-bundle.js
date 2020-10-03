@@ -6252,7 +6252,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
             flex: 1
           }
         }, _react["default"].createElement(_Image["default"], {
-          uri: "https://reactnative.dev/img/header_logo.svg"
+          uri: "https://hackernoon.com/images/z2xg2bpo.jpg"
         }), _react["default"].createElement(_Text["default"], {
           textSize: 48,
           textColor: '#FF0000FF'
