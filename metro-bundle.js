@@ -223,16 +223,26 @@ var __BUNDLE_START_TIME__=this.nativePerformanceNow?nativePerformanceNow():Date.
 
     print_log('clearTimeout => ' + JSON.stringify(args));
   };
+})(typeof globalThis !== 'undefined' ? globalThis : typeof global !== 'undefined' ? global : typeof window !== 'undefined' ? window : this);
+(function (global) {
+  "use strict";
 
-  global.registry = {};
+  global.providers = {};
   global.AppRegistry = {
     registerApp: function registerApp(appKey, provider) {
       print_log('register app key => ' + appKey);
-      registry[appKey] = provider;
+      providers[appKey] = provider;
     },
     runApp: function runApp(appKey, initParams) {
-      print_log('run app key => ' + appKey);
-      return registry[appKey] && registry[appKey]();
+      var provider = providers[appKey];
+
+      if (provider) {
+        print_log('run app key => ' + appKey);
+        var json = provider();
+        global.nativeRender(json);
+      } else {
+        print_log('app key => ' + appKey + ' not exists');
+      }
     }
   };
 })(typeof globalThis !== 'undefined' ? globalThis : typeof global !== 'undefined' ? global : typeof window !== 'undefined' ? window : this);

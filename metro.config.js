@@ -9,7 +9,7 @@ module.exports = {
     },
     serializer: {
         /* serializer options */
-        getPolyfills: () => ['platform-polyfills.js']
+        getPolyfills: () => ['polyfills/platform.js', 'polyfills/AppRegistry.js']
     },
     server: {
         /* server options */
