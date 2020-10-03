@@ -223,6 +223,18 @@ var __BUNDLE_START_TIME__=this.nativePerformanceNow?nativePerformanceNow():Date.
 
     print_log('clearTimeout => ' + JSON.stringify(args));
   };
+
+  global.registry = {};
+  global.AppRegistry = {
+    registerApp: function registerApp(appKey, provider) {
+      print_log('register app key => ' + appKey);
+      registry[appKey] = provider;
+    },
+    runApp: function runApp(appKey, initParams) {
+      print_log('run app key => ' + appKey);
+      return registry[appKey] && registry[appKey]();
+    }
+  };
 })(typeof globalThis !== 'undefined' ? globalThis : typeof global !== 'undefined' ? global : typeof window !== 'undefined' ? window : this);
 __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
   "use strict";
@@ -231,9 +243,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
 
   var _reactTestRenderer = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[1]));
 
-  var _AppRegistry = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[2]));
-
-  var _App = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[3]));
+  var _App = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[2]));
 
   function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -243,14 +253,10 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
 
   function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-  _AppRegistry["default"].registerApp('App', function () {
+  global.AppRegistry.registerApp('App', function () {
     return _reactTestRenderer["default"].create(_react["default"].createElement(_App["default"], null));
   });
-
-  var json = _AppRegistry["default"].runApp('App');
-
-  print_log(JSON.stringify(json));
-},0,[1,4,10,11]);
+},0,[1,4,10]);
 __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
   'use strict';
 
@@ -6176,20 +6182,6 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
 __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
   "use strict";
 
-  var registry = {};
-  var AppRegistry = {
-    registerApp: function registerApp(appKey, provider) {
-      registry[appKey] = provider;
-    },
-    runApp: function runApp(appKey, initParams) {
-      return registry[appKey] && registry[appKey]();
-    }
-  };
-  module.exports = AppRegistry;
-},10,[]);
-__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
-  "use strict";
-
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
@@ -6262,7 +6254,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
   }(_react.Component);
 
   exports["default"] = App;
-},11,[1,12,16,17]);
+},10,[1,11,15,16]);
 __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
   "use strict";
 
@@ -6328,14 +6320,14 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
   View.propTypes = {
     style: _propTypes["default"].object
   };
-},12,[1,13]);
+},11,[1,12]);
 __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
   "use strict";
 
   {
     module.exports = _$$_REQUIRE(_dependencyMap[0])();
   }
-},13,[14]);
+},12,[13]);
 __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
   'use strict';
 
@@ -6391,13 +6383,13 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
     ReactPropTypes.PropTypes = ReactPropTypes;
     return ReactPropTypes;
   };
-},14,[15]);
+},13,[14]);
 __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
   'use strict';
 
   var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
   module.exports = ReactPropTypesSecret;
-},15,[]);
+},14,[]);
 __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
   "use strict";
 
@@ -6471,7 +6463,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
   Image.propTypes = _objectSpread(_objectSpread({}, _View["default"].propTypes), {}, {
     uri: _propTypes["default"].string
   });
-},16,[1,13,12]);
+},15,[1,12,11]);
 __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
   "use strict";
 
@@ -6546,5 +6538,5 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
     textSize: _propTypes["default"].number,
     textColor: _propTypes["default"].string
   });
-},17,[1,13,12]);
+},16,[1,12,11]);
 __r(0);
