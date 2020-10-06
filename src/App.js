@@ -7,7 +7,10 @@ import Text from '../Framework/Component/Text';
 export default class App extends Component {
     render() {
         return (
-            <View style={{ flexDirection: 'column' }}>
+            <View style={{
+                flexDirection: 'column', flexWrap: 'wrap', justifyContent: 'center',
+                alignItems: 'center'
+            }}>
                 <View style={{ width: 96, height: 96, backgroundColor: '#ffff0000' }}>
                     <Text>1</Text>
                 </View>

@@ -6247,7 +6247,10 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
       value: function render() {
         return _react["default"].createElement(_View["default"], {
           style: {
-            flexDirection: 'column'
+            flexDirection: 'column',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            alignItems: 'center'
           }
         }, _react["default"].createElement(_View["default"], {
           style: {
