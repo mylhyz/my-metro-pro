@@ -6251,12 +6251,25 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
           style: {
             flex: 1
           }
-        }, _react["default"].createElement(_Image["default"], {
-          uri: "https://hackernoon.com/images/z2xg2bpo.jpg"
-        }), _react["default"].createElement(_Text["default"], {
-          textSize: 48,
-          textColor: '#FF0000FF'
-        }, "Hello,React"));
+        }, _react["default"].createElement(_View["default"], {
+          style: {
+            width: 48,
+            height: 48,
+            backgroundColor: '#ffff0000'
+          }
+        }), _react["default"].createElement(_View["default"], {
+          style: {
+            width: 48,
+            height: 48,
+            backgroundColor: '#ff00ff00'
+          }
+        }), _react["default"].createElement(_View["default"], {
+          style: {
+            width: 48,
+            height: 48,
+            backgroundColor: '#ff0000ff'
+          }
+        }));
       }
     }]);
 
